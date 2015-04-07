@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent">
+        <ProgressBar android:id="@+id/progress" style="?android:attr/progressBarStyleLarge"
+                     android:layout_width="wrap_content" android:layout_height="wrap_content"
+                     android:layout_marginBottom="8dp" android:visibility="gone" />
+
+        <LinearLayout android:id="@+id/form"
+                      android:orientation="vertical"
+                      android:layout_width="fill_parent"
+                      android:layout_height="fill_parent">
+                <EditText android:id="@+id/busy_seconds" android:layout_width="match_parent"
+                          android:layout_height="wrap_content" android:hint="@string/busy_seconds"
+                          android:imeOptions="actionUnspecified" android:inputType="number"
+                          android:maxLines="1" android:singleLine="true" />
+
+                <Button android:id="@+id/show_progress_button"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp" android:text="@string/action_show_progress"
+                        android:textStyle="bold" />
+        </LinearLayout>
+</LinearLayout>
