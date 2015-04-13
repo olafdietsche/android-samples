@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Show Authenticators</string>
+
+    <string name="authenticator_icon">Icon</string>
+    <string name="authenticator_small_icon">(small)</string>
+    <string name="authenticator_name">Name</string>
+    <string name="authenticator_type">Type</string>
+    <string name="authenticator_package">Package</string>
+</resources>
