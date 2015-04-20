@@ -3,6 +3,7 @@
 
 package de.olafdietsche.android.widget;
 
+import java.util.Arrays;
 import java.util.List;
 
 import android.content.Context;
@@ -18,6 +19,10 @@ public abstract class ListAdapterBase<T> extends BaseAdapter {
 
 		if (inflater == null)
 			inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+	}
+
+	public ListAdapterBase(Context context, int resource, T[] data) {
+		this(context, resource, Arrays.asList(data));
 	}
 
 	@Override
@@ -44,6 +49,14 @@ public abstract class ListAdapterBase<T> extends BaseAdapter {
 
 		T item = data.get(position);
 		return getView(item, convertView, parent);
+	}
+
+	public void setData(List<T> data) {
+		this.data = data;
+	}
+
+	public void setData(T[] data) {
+		setData(Arrays.asList(data));
 	}
 
 	private int resource;
