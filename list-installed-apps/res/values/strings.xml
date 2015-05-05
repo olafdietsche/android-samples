@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">List Installed Apps</string>
+
+    <string name="pkg_name">App Name</string>
+</resources>
