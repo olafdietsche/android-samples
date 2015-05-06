@@ -42,6 +42,8 @@ public class PackagesListAdapter extends ListAdapterBase<PackageInfo> {
 		TextView tv;
 		tv = (TextView) view.findViewById(R.id.pkg_name);
 		tv.setText(name);
+
+		view.setTag(pkg);
 		return view;
 	}
 
