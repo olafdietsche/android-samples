@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Show Simcard Info</string>
+
+    <string name="imei">IMEI</string>
+    <string name="line_number">Line number</string>
+    <string name="number_not_available">Number not available</string>
+</resources>
