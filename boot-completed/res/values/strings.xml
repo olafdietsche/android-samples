@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Start at Boot Completed</string>
+    <string name="info">Starting from Android 3.1, the user must start an app once manually, to allow receiving the boot completed event.</string>
+    <string name="boot_completed">Boot completed event received.</string>
+</resources>
