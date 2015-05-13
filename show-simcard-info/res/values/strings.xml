@@ -3,6 +3,8 @@
     <string name="app_name">Show Simcard Info</string>
 
     <string name="imei">IMEI</string>
+    <string name="serial_number">Serial number</string>
     <string name="line_number">Line number</string>
+
     <string name="number_not_available">Number not available</string>
 </resources>

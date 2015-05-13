@@ -3,12 +3,9 @@
 
 package de.olafdietsche.android.samples.show_simcard_info;
 
-import java.util.ArrayList;
-
 import android.telephony.TelephonyManager;
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
 import android.util.Log;
 
@@ -19,31 +16,29 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.main);
 
 		TelephonyManager tm = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
-		String device_id = tm.getDeviceId();
-		if (device_id == null)
-			device_id = getString(R.string.number_not_available);
+		String info;
+		TextView tv;
 
-		TextView imei = (TextView) findViewById(R.id.imei);
-		imei.setText(device_id);
+		info = tm.getDeviceId();
+		if (info == null)
+			info = getString(R.string.number_not_available);
 
-		String number = tm.getLine1Number();
-		if (number == null)
-			number = getString(R.string.number_not_available);
+		tv = (TextView) findViewById(R.id.imei);
+		tv.setText(info);
 
-		TextView lineNumber = (TextView) findViewById(R.id.line_number);
-		lineNumber.setText(number);
-		
-/*
-		ListView list = (ListView) findViewById(R.id.list);
-		View header = list.inflate(this, R.layout.header, null);
-		list.addHeaderView(header);
+		info = tm.getSimSerialNumber();
+		if (info == null)
+			info = getString(R.string.number_not_available);
 
-		AccountManager am = AccountManager.get(this);
-		Account[] accounts = am.getAccounts();
+		tv = (TextView) findViewById(R.id.serial_number);
+		tv.setText(info);
 
-		AccountsListAdapter adapter = new AccountsListAdapter(this, accounts);
-		list.setAdapter(adapter);
-//*/
+		info = tm.getLine1Number();
+		if (info == null)
+			info = getString(R.string.number_not_available);
+
+		tv = (TextView) findViewById(R.id.line_number);
+		tv.setText(info);
 	}
 
 	private static final String TAG = MainActivity.class.getName();
