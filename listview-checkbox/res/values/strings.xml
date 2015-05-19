@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string name="app_name">Listview Checkbox</string>
+
+        <string name="list_header">Names</string>
+
+        <string-array name="names">
+                <item>Alice</item>
+                <item>Bob</item>
+                <item>Jane</item>
+                <item>John</item>
+                <item>Mary</item>
+        </string-array>
+</resources>
