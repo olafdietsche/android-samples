@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Write External Storage</string>
+    <string name="save_text">Save Text</string>
+    <string name="filename_hint">Filename</string>
+    <string name="text_hint">Text</string>
+</resources>
