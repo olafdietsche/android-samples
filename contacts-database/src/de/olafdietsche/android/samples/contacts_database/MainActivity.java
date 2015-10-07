@@ -37,24 +37,7 @@ public class MainActivity extends Activity {
 	@Override
 	public void onResume() {
 		super.onResume();
-
-		AsyncTask<Void, Void, Cursor> task = new AsyncTask<Void, Void, Cursor>() {
-			@Override
-			protected Cursor doInBackground(Void... unused) {
-				Context context = getApplicationContext();
-				DatabaseHelper db = new DatabaseHelper(context);
-				ContactsTableHelper helper = new ContactsTableHelper(db);
-				Cursor cursor = helper.query(projection, null, null, null);
-				return cursor;
-			}
-
-			@Override
-			protected void onPostExecute(Cursor cursor) {
-				adapter_.changeCursor(cursor);
-			}
-		};
-
-		task.execute();
+		updateContactsListView(this);
 	}
 
 	@Override
@@ -73,6 +56,25 @@ public class MainActivity extends Activity {
 		}
 
 		return false;
+	}
+
+	private void updateContactsListView(final Context context) {
+		AsyncTask<Void, Void, Cursor> task = new AsyncTask<Void, Void, Cursor>() {
+			@Override
+			protected Cursor doInBackground(Void... unused) {
+				DatabaseHelper db = new DatabaseHelper(context);
+				ContactsTableHelper helper = new ContactsTableHelper(db);
+				Cursor cursor = helper.query(projection, null, null, null);
+				return cursor;
+			}
+
+			@Override
+			protected void onPostExecute(Cursor cursor) {
+				adapter_.changeCursor(cursor);
+			}
+		};
+
+		task.execute();
 	}
 
 	private CursorAdapter adapter_;
