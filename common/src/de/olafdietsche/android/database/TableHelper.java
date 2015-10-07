@@ -32,6 +32,10 @@ public class TableHelper {
 		return query(projection, selection, selectionArgs, sortOrder);
 	}
 
+	public Cursor query(long id, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
+		return query(Long.toString(id), projection, selection, selectionArgs, sortOrder);
+	}
+
 	public int delete(String selection, String[] selectionArgs) {
 		SQLiteDatabase db = dbHelper_.getWritableDatabase();
 		return db.delete(tableName_, selection, selectionArgs);
@@ -41,6 +45,10 @@ public class TableHelper {
 		selection = prefixClause(whereId_, selection);
 		selectionArgs = insertArg(id, selectionArgs);
 		return delete(selection, selectionArgs);
+	}
+
+	public int delete(long id, String selection, String[] selectionArgs) {
+		return delete(Long.toString(id), selection, selectionArgs);
 	}
 
 	public long insert(ContentValues values) {
@@ -61,6 +69,10 @@ public class TableHelper {
 		selection = prefixClause(whereId_, selection);
 		selectionArgs = insertArg(id, selectionArgs);
 		return update(values, selection, selectionArgs);
+	}
+
+	public int update(long id, ContentValues values, String selection, String[] selectionArgs) {
+		return update(Long.toString(id), values, selection, selectionArgs);
 	}
 
 	private static final String whereId_ = BaseColumns._ID + " = ?";
