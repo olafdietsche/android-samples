@@ -9,10 +9,13 @@ import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.provider.BaseColumns;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ContextMenu.ContextMenuInfo;
+import android.widget.AdapterView;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.util.Log;
@@ -27,6 +30,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.main);
 
 		ListView list = (ListView) findViewById(R.id.contacts_list);
+		registerForContextMenu(list);
 		View header = list.inflate(this, R.layout.header, null);
 		list.addHeaderView(header);
 
@@ -56,6 +60,31 @@ public class MainActivity extends Activity {
 		}
 
 		return false;
+	}
+
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View view, ContextMenuInfo menuInfo) {
+		AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
+		if (info == null || info.id < 0)
+			return;
+
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.context_menu, menu);
+	}
+
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.menu_delete:
+			DatabaseHelper db = new DatabaseHelper(this);
+			ContactsTableHelper helper = new ContactsTableHelper(db);
+			AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+			helper.delete(info.id, null, null);
+			updateContactsListView(this);
+			return true;
+		default:
+			return super.onContextItemSelected(item);
+		}
 	}
 
 	private void updateContactsListView(final Context context) {

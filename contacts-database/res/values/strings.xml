@@ -8,4 +8,6 @@
     <string name="hint_name">Name</string>
     <string name="hint_contact">Contact</string>
     <string name="action_new">Add</string>
+
+    <string name="menu_delete">Delete</string>
 </resources>
