@@ -2,8 +2,8 @@
 <resources>
     <string name="app_name">Contacts Database</string>
 
-    <string name="name">Name</string>
-    <string name="contact">Contact</string>
+    <string name="label_name">Name</string>
+    <string name="label_contact">Contact</string>
 
     <string name="hint_name">Name</string>
     <string name="hint_contact">Contact</string>

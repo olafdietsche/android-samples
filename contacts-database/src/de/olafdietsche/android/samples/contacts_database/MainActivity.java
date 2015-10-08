@@ -29,8 +29,16 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
+		final Context context = this;
 		ListView list = (ListView) findViewById(R.id.contacts_list);
 		registerForContextMenu(list);
+		list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+				@Override
+				public void onItemClick(AdapterView<?> list, View view, int position, long id) {
+					ShowEntryActivity.start(context, id);
+				}
+			});
+
 		View header = list.inflate(this, R.layout.header, null);
 		list.addHeaderView(header);
 
