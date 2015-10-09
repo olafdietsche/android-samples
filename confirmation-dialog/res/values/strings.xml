@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Confirmation Dialog</string>
+
+    <string name="usage_hint">Select Menu Button</string>
+    <string name="action_delete">Delete</string>
+
+    <string name="confirmation_title">Confirm</string>
+    <string name="confirmation_message">Really delete entry?</string>
+    <string name="confirmation_yes">Yes</string>
+    <string name="confirmation_no">No</string>
+    <string name="message_delete_confirmed">Entry deleted</string>
+    <string name="message_delete_cancelled">Entry not deleted</string>
+</resources>
