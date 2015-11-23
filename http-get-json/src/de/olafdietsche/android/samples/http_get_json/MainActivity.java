@@ -5,6 +5,7 @@ package de.olafdietsche.android.samples.http_get_json;
 
 import java.io.IOException;
 import java.net.MalformedURLException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,7 +75,8 @@ public class MainActivity extends Activity {
 		@Override
 		protected List<RepositoryItem> doInBackground(String... query) {
 			try {
-				SimpleHttpClient client = new SimpleHttpClient(urlSpec + query[0]);
+				String q = URLEncoder.encode(query[0]);
+				SimpleHttpClient client = new SimpleHttpClient(urlSpec + q);
 				client.doGet();
 				String response = client.readTextResponse();
 
