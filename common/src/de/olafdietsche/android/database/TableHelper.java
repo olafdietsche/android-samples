@@ -21,6 +21,11 @@ public class TableHelper {
 		dbHelper_.close();
 	}
 
+	public Cursor rawQuery(String sql, String[] args) {
+		SQLiteDatabase db = dbHelper_.getReadableDatabase();
+		return db.rawQuery(sql, args);
+	}
+
 	public Cursor query(String[] projection, String selection, String[] selectionArgs, String sortOrder) {
 		SQLiteDatabase db = dbHelper_.getReadableDatabase();
 		return db.query(tableName_, projection, selection, selectionArgs, null, null, sortOrder);
